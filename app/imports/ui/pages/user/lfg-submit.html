@@ -1,0 +1,30 @@
+<template name="LFG_Submit_Page">
+
+{{#if Template.subscriptionsReady}}
+
+  <div class="ui text container segment">
+    <div class="ui dividing header">
+      Looking for Group
+    </div>
+    <form class="ui equal width form profile-data-form {{ successClass }} {{ errorClass }}">
+
+      <div class="field">
+        {{> Text_Form_Control label="Game" placeholder="Game" value=profile.game errorMessage=(fieldError "game")}}
+        {{> Text_Form_Control label="Time" placeholder="Time and, if relevant, location eg 21:00-23:30 at Sinclair" value=profile.location errorMessage=(fieldError "location")}}
+      </div>
+
+      {{> TextArea_Form_Control label="Other Details" value=profile.bio placeholder="Other relevant details eg skill level, style of play, etc." errorMessage=(fieldError "bio")}}
+
+
+      <button class="ui primary button" type="submit">Submit</button>
+      {{#if displaySuccessMessage}}
+        <div class="ui success message">
+          <p>LFG Submitted</p>
+        </div>
+      {{/if}}
+    </form>
+  </div>
+
+  {{/if}}
+
+</template>

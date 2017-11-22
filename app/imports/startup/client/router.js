@@ -68,6 +68,22 @@ userRoutes.route('/filter', {
   },
 });
 
+export const lfgPageRouteName = 'LFG_Page';
+userRoutes.route('/lfg', {
+  name: lfgPageRouteName,
+  action() {
+    BlazeLayout.render('User_Layout', { main: lfgPageRouteName });
+  },
+});
+
+export const lfgSubmitPageRouteName = 'LFG_Submit_Page';
+userRoutes.route('/lfg-submit', {
+  name: lfgSubmitPageRouteName,
+  action() {
+    BlazeLayout.render('User_Layout', { main: lfgSubmitPageRouteName });
+  },
+});
+
 /*                        MISC ROUTES                       */
 FlowRouter.notFound = {
   action() {
