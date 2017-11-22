@@ -1,6 +1,6 @@
 <template name="Profile_Page">
 
-{{#if Template.subscriptionsReady}}
+  {{#if Template.subscriptionsReady}}
 
   <div class="ui text container segment">
     <div class="ui dividing header">
@@ -9,26 +9,29 @@
     <form class="ui equal width form profile-data-form {{ successClass }} {{ errorClass }}">
 
       <div class="fields">
-        {{> Text_Form_Control label="First" placeholder="Philip" value=profile.firstName errorMessage=(fieldError "firstName")}}
-        {{> Text_Form_Control label="Last" placeholder="Johnson" value=profile.lastName errorMessage=(fieldError "lastName")}}
+        {{> Text_Form_Control label="First" placeholder="First Name" value=profile.firstName errorMessage=(fieldError "firstName")}}
+        {{> Text_Form_Control label="Last" placeholder="Last Name" value=profile.lastName errorMessage=(fieldError "lastName")}}
 
       </div>
 
       <div class="field">
-        {{> Text_Form_Control label="Title" placeholder="Student" value=profile.title errorMessage=(fieldError "title")}}
-        {{> Text_Form_Control label="Location" placeholder="Location" value=profile.location errorMessage=(fieldError "location")}}
-        {{> Text_Form_Control label="Picture" placeholder="http://foo.com/shot.jpg" value=profile.picture errorMessage=(fieldError "picture")}}
-      </div>
-
-      <div class="field">
-        {{> Select_Form_Control label="Interests" options=interests errorMessage=(fieldError "interests") multiple=true }}
+        {{> Text_Form_Control label="Username" placeholder="UH user ID" value=profile.title errorMessage=(fieldError "title")}}
+        {{> Text_Form_Control label="Email" placeholder="UH user ID@hawaii.edu" value=profile.location errorMessage=(fieldError "location")}}
+        {{> Text_Form_Control label="Games Currently Playing" placeholder="http://foo.com/shot.jpg" value=profile.picture errorMessage=(fieldError "picture")}}
       </div>
 
       <div class="fields">
 
-        {{> Social_Network_Form_Control label="Github" icon="github" placeholder="pmjohnson" value=profile.github errorMessage=(fieldError "github")}}
-        {{> Social_Network_Form_Control label="Facebook" icon="facebook" placeholder="pmjohnson" value=profile.facebook errorMessage=(fieldError "facebook")}}
-        {{> Social_Network_Form_Control label="Instagram" icon="instagram" placeholder="pmjohnson" value=profile.instagram errorMessage=(fieldError "instagram")}}
+        {{> Social_Network_Form_Control label="Steam" icon="steam" placeholder="pmjohnson" value=profile.steam errorMessage=(fieldError "steam")}}
+        {{> Social_Network_Form_Control label="Origin" icon="facebook" placeholder="pmjohnson" value=profile.origin errorMessage=(fieldError "origin")}}
+
+      </div>
+
+      <div class="fields">
+
+        {{> Social_Network_Form_Control label="PSN" icon="steam" placeholder="pmjohnson" value=profile.psn errorMessage=(fieldError "psn")}}
+        {{> Social_Network_Form_Control label="XBOX" icon="facebook" placeholder="pmjohnson" value=profile.xbox errorMessage=(fieldError "xbox")}}
+
 
       </div>
 
@@ -37,9 +40,9 @@
 
       <button class="ui primary button" type="submit">Submit</button>
       {{#if displaySuccessMessage}}
-        <div class="ui success message">
-          <p>Profile data successfully updated.</p>
-        </div>
+      <div class="ui success message">
+        <p>Profile data successfully updated.</p>
+      </div>
       {{/if}}
     </form>
   </div>
