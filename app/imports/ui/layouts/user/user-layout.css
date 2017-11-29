@@ -2,3 +2,7 @@
   padding-top: 75px;
 }
 
+.ui.top.fixed.borderless.inverted.teal.menu{
+  background-color: darkgreen;
+}
+
