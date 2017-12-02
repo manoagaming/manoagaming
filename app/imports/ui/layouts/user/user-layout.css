@@ -1,8 +1,22 @@
 .user-layout-body {
   padding-top: 75px;
+  background: url("https://images5.alphacoders.com/726/thumb-1920-726634.jpg");
 }
 
 .ui.top.fixed.borderless.inverted.teal.menu{
-  background-color: darkgreen;
+  background-color: transparent;
+  box-shadow: none;
+  border: none;
+  font-family: "Gotham SSm A", "Gotham SSm B", "Helvetica Neue", "Helvetica", "Roboto", "Arial", sans-serif;
+  font-style: normal;
+  font-weight: 400;
+}
+
+footer{
+  background-color: transparent;
+  color: white;
+  font-family: "Gotham SSm A", "Gotham SSm B", "Helvetica Neue", "Helvetica", "Roboto", "Arial", sans-serif;
+  font-style: normal;
+  font-weight: 400;
 }
 
