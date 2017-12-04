@@ -1,6 +1,8 @@
 .user-layout-body {
   padding-top: 75px;
-  background: url("https://images5.alphacoders.com/726/thumb-1920-726634.jpg");
+  background: url("https://media.giphy.com/media/dGYQ84NqIQhj2/giphy.gif");
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 .ui.top.fixed.borderless.inverted.teal.menu{
@@ -18,5 +20,11 @@ footer{
   font-family: "Gotham SSm A", "Gotham SSm B", "Helvetica Neue", "Helvetica", "Roboto", "Arial", sans-serif;
   font-style: normal;
   font-weight: 400;
+}
+
+h1{
+  font-family: "fantasy", sans-serif;
+  font-style: normal;
+  font-weight: 200;
 }
 
