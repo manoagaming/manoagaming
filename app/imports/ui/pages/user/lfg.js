@@ -38,6 +38,9 @@ Template.LFG_Page.helpers({
               return { label: interest.name, selected: _.contains(selectedInterests, interest.name) };
             });
   },
+  routeUserName() {
+    return FlowRouter.getParam('username');
+  },
 });
 
 
@@ -79,3 +82,4 @@ Template.LFG_Page.events({
   },
 });
 
+$
