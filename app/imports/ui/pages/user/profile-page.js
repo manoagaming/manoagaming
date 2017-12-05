@@ -46,19 +46,24 @@ Template.Profile_Page.events({
     event.preventDefault();
     const firstName = event.target.First.value;
     const lastName = event.target.Last.value;
-    const title = event.target.Title.value;
-    const location = event.target.Location.value;
     const username = FlowRouter.getParam('username'); // schema requires username.
-    const picture = event.target.Picture.value;
-    const github = event.target.Github.value;
-    const facebook = event.target.Facebook.value;
-    const instagram = event.target.Instagram.value;
+    const email = event.target.Email.value;
+    const games = event.target.Games.value;
+    // IGN
+    const steamIGN = event.target.Steam.value;
+    const originIGN = event.target.Origin.value;
+    const psnIGN = event.target.PSN.value;
+    const xboxliveIGN = event.target.xBoxLive.value;
+    // Consoles
+    const ps = event.target.PS.value;
+    const xbox = event.target.xbox.value;
+    const nintendo = event.target.PSN.value;
+    const pc = event.target.PC.value;
+    const mobile = event.target.Mobile.value;
     const bio = event.target.Bio.value;
-    const selectedInterests = _.filter(event.target.Interests.selectedOptions, (option) => option.selected);
-    const interests = _.map(selectedInterests, (option) => option.value);
 
-    const updatedProfileData = { firstName, lastName, title, location, picture, github, facebook, instagram, bio, interests,
-      username };
+    const updatedProfileData = { firstName, lastName, username, email, games, steamIGN, originIGN, psnIGN,
+      xboxliveIGN, ps, xbox, nintendo, pc, mobile, bio  };
 
     // Clear out any old validation errors.
     instance.context.reset();
