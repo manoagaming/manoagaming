@@ -1,7 +1,9 @@
 <template name="LFG_Page">
 
 <!--{{#if Template.subscriptionsReady}}-->
-
+  <div class="ui dividing header">
+    Looking for Group
+  </div>
   <div class="ui container">
     <table class="ui celled table">
       <thead>
@@ -56,7 +58,7 @@
           </th>
         </tr>
       <tr>
-        <button class="ui primary button left floated" type="submit">Submit an LFG</button>
+        <a class="ui primary button left floated {{isActiveRoute "LFG_Submit_Page"}} item" href="{{pathFor "LFG_Submit_Page" username=routeUserName}}">Submit an LFG</a>
       </tr>
       </tfoot>
     </table>
