@@ -3,6 +3,7 @@ import { ReactiveDict } from 'meteor/reactive-dict';
 import { FlowRouter } from 'meteor/kadira:flow-router';
 import { _ } from 'meteor/underscore';
 import { LFG } from '/imports/api/LFG/LFGCollection';
+import { Mongo } from 'meteor/mongo'
 
 const displaySuccessMessage = 'displaySuccessMessage';
 const displayErrorMessages = 'displayErrorMessages';
@@ -36,23 +37,29 @@ Template.LFG_Submit_Page.events({
     event.preventDefault();
     const username = FlowRouter.getParam('username'); // schema requires username.
     const game = event.target.Game.value;
-    const starttime = new Date(event.target.Start.value);
+    const starttime = new Date(event.target.Start.value) ;
     const endtime = new Date(event.target.End.value);
     const other = event.target.Other.value;
 
-    const updatedLFGData = { username, game, starttime, endtime, other};
+    console.log(starttime instanceof Date);
+
+
+
+    const insertedLFGData = { username, game, starttime, endtime, other};
 
     // Clear out any old validation errors.
     instance.context.reset();
     // Invoke clean so that updatedLFGData reflects what will be inserted.
-    const cleanData = LFG.getSchema().clean(updatedLFGData);
+    const cleanData = LFG.getSchema().clean(insertedLFGData);
     // Determine validity.
     instance.context.validate(cleanData);
 
+    console.log(cleanData);
+
     if (instance.context.isValid()) {
-      const docID = LFG.findDoc(FlowRouter.getParam('username'))._id;
-      console.log(docID);
-      const id = LFG.update(docID, { $set: cleanData });
+      LFG.define("RsvK6ZT5fAfE2CYYR", { $set: cleanData })
+      //const docID = LFG.findDoc(FlowRouter.getParam('username'))._id;
+      //const id = LFG.insert(docID, { $set: cleanData });
       instance.messageFlags.set(displaySuccessMessage, id);
       instance.messageFlags.set(displayErrorMessages, false);
     } else {
@@ -61,6 +68,3 @@ Template.LFG_Submit_Page.events({
     }
   },
 });
-
-
-

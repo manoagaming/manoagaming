@@ -41,10 +41,13 @@ class LFGCollection extends BaseCollection {
    * if one or more interests are not defined, or if github, facebook, and instagram are not URLs.
    * @returns The newly created docID.
    */
-  define ({ username = '', game = '', starttime = '', endtime = [], other = ''}) {
+  define ({ username = '', game = '', starttime = '', endtime = '', other = ''}) {
     // make sure required fields are OK.
-    const checkPattern = { firstName: String, lastName: String, username: String, bio: String, picture: String,
-      title: String, location: String };
+
+    /*const checkPattern = { username: String, game: String, starttime: Date, endtime: Date, other: String};
+    check({ username, game, starttime, endtime, other }, checkPattern);*/
+
+    const checkPattern = { username: String, game: String, starttime: String, endtime: String, other: String};
     check({ username, game, starttime, endtime, other }, checkPattern);
 
     if (this.find({ username }).count() > 0) {

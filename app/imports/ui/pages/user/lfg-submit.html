@@ -2,29 +2,19 @@
 
 {{#if Template.subscriptionsReady}}
 
-  <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.4/semantic.min.css" rel="stylesheet" type="text/css" />
-  <link href="https://cdn.rawgit.com/mdehoog/Semantic-UI-Calendar/76959c6f7d33a527b49be76789e984a0a407350b/dist/calendar.min.css" rel="stylesheet" type="text/css" />
-  <script src="https://code.jquery.com/jquery-2.1.4.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.4/semantic.min.js"></script>
-  <script src="https://cdn.rawgit.com/mdehoog/Semantic-UI-Calendar/76959c6f7d33a527b49be76789e984a0a407350b/dist/calendar.min.js"></script>
-  <script>
-    $('#lfg_results').calendar();
-  </script>
-
   <div class="ui text container segment">
     <div class="ui dividing header">
       Looking for Group
     </div>
-    <form class="ui equal width form profile-data-form {{ successClass }} {{ errorClass }}">
+    <form class="ui equal width form lfg-data-form {{ successClass }} {{ errorClass }}">
 
       <div class="field">
-        {{> Text_Form_Control label="Game" placeholder="Game" value=lfg.game errorMessage=(fieldError "game")}}
-        {{> Calendar_Form_Control label="Start" placeholder="YYYY-MM-DDTHH:MM:SS (Just type the T, trust me)" value=lfg.starttime errorMessage=(fieldError "starttime")}}
-        {{> Calendar_Form_Control label="End" placeholder="YYYY-MM-DDTHH:MM:SS (Just type the T, trust me)" value=lfg.endtime errorMessage=(fieldError "endtime")}}
+        {{> Text_Form_Control label="Game" placeholder="Game" errorMessage=(fieldError "game")}}
+        {{> Text_Form_Control label="Start" placeholder="YYYY-MM-DDTHH:MM:SS (Just type the T, trust me)"  errorMessage=(fieldError "starttime")}}
+        {{> Text_Form_Control label="End" placeholder="YYYY-MM-DDTHH:MM:SS (Just type the T, trust me)"  errorMessage=(fieldError "endtime")}}
       </div>
 
-      {{> TextArea_Form_Control label="Other Details" value=profile.other placeholder="Other relevant details such as location, platform, skill level, style of play, etc." errorMessage=(fieldError "other")}}
+      {{> TextArea_Form_Control label="Other" placeholder="Other relevant details such as location, platform, skill level, style of play, etc."  errorMessage=(fieldError "other")}}
 
 
       <button class="ui primary button" type="submit">Submit</button>
