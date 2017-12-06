@@ -41,6 +41,7 @@ Template.LFG_Submit_Page.events({
     const endtime = new Date(event.target.End.value);
     const other = event.target.Other.value;
 
+    //Check to see if starttime is of Date type, is not being recognized as such by mongo
     console.log(starttime instanceof Date);
 
 
@@ -60,7 +61,7 @@ Template.LFG_Submit_Page.events({
       LFG.define("RsvK6ZT5fAfE2CYYR", { $set: cleanData })
       //const docID = LFG.findDoc(FlowRouter.getParam('username'))._id;
       //const id = LFG.insert(docID, { $set: cleanData });
-      instance.messageFlags.set(displaySuccessMessage, id);
+      instance.messageFlags.set(displaySuccessMessage, "RsvK6ZT5fAfE2CYYR");
       instance.messageFlags.set(displayErrorMessages, false);
     } else {
       instance.messageFlags.set(displaySuccessMessage, false);

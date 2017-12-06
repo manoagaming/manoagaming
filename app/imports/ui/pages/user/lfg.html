@@ -1,6 +1,8 @@
 <template name="LFG_Page">
 
 {{#if Template.subscriptionsReady}}
+  <script src="./lfg-table.js"></script>
+  <script>addTable()</script>
   <script type="text/javascript">
     function addTable() {
 
@@ -25,6 +27,8 @@
       heading[2] = "Start Time"
       heading[3] = "End Time"
       heading[4] = "Other"
+
+
 
       var stock = new Array()
       stock[0] = new Array("jeremy21", "Wows", new Date("2017-12-03T22:00:00"), new Date("2017-12-03T22:00:00"), "Anyone Welcome")
