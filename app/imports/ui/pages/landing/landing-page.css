@@ -2,24 +2,32 @@
   padding: 10px 10px 30px 10px;
   background-color: transparent;
   color: #E5F9E7;
+  text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+
 }
 
 .landing-section-2 {
   padding: 20px 10px 20px 10px;
   background-color: transparent;
   color:  #00B5AD;
+  text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+
 }
 
 .landing-section-3 {
   padding: 20px 10px 30px 30px;
   background-color: transparent;
   color: #E5F9E7;
+  text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+
 }
 
 .landing-section-5 {
   padding: 20px 10px 20px 10px;
   background-color: transparent;
   color: #E5F9E7;
+  text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+
 }
 
 
@@ -27,12 +35,15 @@
   font-family: 'Roboto', sans-serif;
   font-weight: 900;
   font-size: 72px;
+  text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
 }
 
 .landing-section-header {
   font-family: 'Roboto', sans-serif;
   font-weight: 900;
   font-size: 36px;
+  text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+
 }
 
 .fullscreen-bg {
