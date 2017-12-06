@@ -1,8 +1,7 @@
 <template name="LFG_Page">
 
 {{#if Template.subscriptionsReady}}
-  <script src="./lfg-table.js"></script>
-  <script>addTable()</script>
+  <script src="lfg.js"></script>
   <script type="text/javascript">
     function addTable() {
 
@@ -52,8 +51,13 @@
         var tr = document.createElement('TR');
         for (j = 0; j < stock[i].length; j++) {
           var td = document.createElement('TD')
-          td.appendChild(document.createTextNode(stock[i][j]));
-          tr.appendChild(td)
+/*          if (j%4 == 0) {
+            var a = document.createElement('a');
+            a.appendChild(routeUserName);
+            a.setAttribute('class', '{{isActiveRoute "Profile_Page"}} item" href="{{pathFor "Profile_Page" username=routeUserName}}');
+          }*/
+            td.appendChild(document.createTextNode(stock[i][j]));
+            tr.appendChild(td)
         }
         tableBody.appendChild(tr);
       }

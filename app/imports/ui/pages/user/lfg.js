@@ -48,12 +48,12 @@ Template.LFG_Page.events({
     // Clear out any old validation errors.
     instance.context.reset();
     // Invoke clean so that updatedLFGData reflects what will be inserted.
-    const cleanData = LFGs.getSchema().clean(updatedLFGData);
+    const cleanData = LFG.getSchema().clean(updatedLFGData);
     // Determine validity.
     instance.context.validate(cleanData);
 
     if (instance.context.isValid()) {
-      const docID = LFGs.findDoc(FlowRouter.getParam('username'))._id;
+      const docID = LFG.findDoc(FlowRouter.getParam('username'))._id;
       const id = LFGs.update(docID, { $set: cleanData });
       instance.messageFlags.set(displaySuccessMessage, id);
       instance.messageFlags.set(displayErrorMessages, false);

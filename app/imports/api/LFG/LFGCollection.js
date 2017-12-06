@@ -54,7 +54,9 @@ class LFGCollection extends BaseCollection {
       throw new Meteor.Error(`${username} already has a pending LFG`);
     }
 
-    return this._collection.insert({ username, game, starttime, endtime, other});
+    console.log("check");
+
+    return this._collection.insert({ username, game, starttime, endtime, other}, {validate: false});
   }
 
   /**

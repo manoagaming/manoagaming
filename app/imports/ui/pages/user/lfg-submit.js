@@ -55,6 +55,7 @@ Template.LFG_Submit_Page.events({
     // Determine validity.
     instance.context.validate(cleanData);
 
+    //Affirm data should be a valid set
     console.log(cleanData);
 
     if (instance.context.isValid()) {
