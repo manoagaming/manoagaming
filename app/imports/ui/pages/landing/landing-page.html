@@ -1,4 +1,9 @@
 <template name="Landing_Page">
+  <div class="fullscreen-bg">
+    <video loop muted autoplay poster="img/videoframe.jpg" class="fullscreen-bg__video">
+      <source src="https://d3hmvhl7ru3t12.cloudfront.net/video/pages/home/header-20316a38f7cfb65480e84592386095445e3ed800accf65f4d638a11b89ce9ce7d95c0062f9ab760b36963383893bed79f199013acc3b549c8bf320eb696be33c.webm" type="video/webm">
+    </video>
+  </div>
 
   <div class="landing-section-1">
     <div class="ui grid">
@@ -21,7 +26,6 @@
   <div class="landing-section-2">
     <div class="ui grid">
       <div class="ui eight wide column">
-        <img class="ui centered medium image" src="/images/profile.png">
       </div>
       <div class="ui eight wide middle aligned column">
         <h1 class="landing-section-header">Create your profile.</h1>
@@ -36,7 +40,6 @@
         <h1 class="landing-section-header">Publish your profile for other gamers to see.</h1>
       </div>
       <div class="ui eight wide column">
-        <img class="ui centered medium image" src="/images/directory.png">
       </div>
     </div>
   </div>
@@ -44,7 +47,6 @@
   <div class="landing-section-2">
     <div class="ui grid">
       <div class="ui eight wide column">
-        <img class="ui centered medium image" src="/images/filter.png">
       </div>
       <div class="ui eight wide middle aligned column">
         <h1 class="landing-section-header">Find UH community members that you can game with.</h1>
@@ -59,5 +61,4 @@
       </div>
     </div>
   </div>
-
 </template>
