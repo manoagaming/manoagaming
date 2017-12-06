@@ -1,3 +1,4 @@
+import './calendar-form-control.html';
 import './checkbox-field.html';
 import './checkbox-field';
 import './checkbox-form-control.html';
