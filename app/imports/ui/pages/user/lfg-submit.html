@@ -6,14 +6,15 @@
     <div class="ui dividing header">
       Looking for Group
     </div>
-    <form class="ui equal width form profile-data-form {{ successClass }} {{ errorClass }}">
+    <form class="ui equal width form lfg-data-form {{ successClass }} {{ errorClass }}">
 
       <div class="field">
-        {{> Text_Form_Control label="Game" placeholder="Game" value=profile.game errorMessage=(fieldError "game")}}
-        {{> Text_Form_Control label="Time" placeholder="Time and, if relevant, location eg 21:00-23:30 at Sinclair" value=profile.location errorMessage=(fieldError "location")}}
+        {{> Text_Form_Control label="Game" placeholder="Game" errorMessage=(fieldError "game")}}
+        {{> Text_Form_Control label="Start" placeholder="YYYY-MM-DDTHH:MM:SS (Just type the T, trust me)"  errorMessage=(fieldError "starttime")}}
+        {{> Text_Form_Control label="End" placeholder="YYYY-MM-DDTHH:MM:SS (Just type the T, trust me)"  errorMessage=(fieldError "endtime")}}
       </div>
 
-      {{> TextArea_Form_Control label="Other Details" value=profile.bio placeholder="Other relevant details eg skill level, style of play, etc." errorMessage=(fieldError "bio")}}
+      {{> TextArea_Form_Control label="Other" placeholder="Other relevant details such as location, platform, skill level, style of play, etc."  errorMessage=(fieldError "other")}}
 
 
       <button class="ui primary button" type="submit">Submit</button>
@@ -26,5 +27,7 @@
   </div>
 
   {{/if}}
+
+
 
 </template>
