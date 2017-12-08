@@ -5,80 +5,72 @@
       "name": "InterestCollection",
       "contents": [
         {
-          "name": "Software Engineering",
-          "description": "Techniques for development of high quality systems"
+          "name": "First Person Shooter",
+          "description": "There Can Be Only One"
         },
         {
-          "name": "Algorithms",
-          "description": "A set of rules to be followed in computation"
+          "name": "Racing",
+          "description": "The Need for Speed"
         },
         {
-          "name": "Mobile Networks",
-          "description": "Networks created using mobile devices."
+          "name": "Flight Simulation",
+          "description": "Take to the Skies, Freedom"
         },
         {
-          "name": "Sailing",
-          "description": ""
+          "name": "Building",
+          "description": "Minecraft"
         },
         {
-          "name": "Mars",
-          "description": ""
+          "name": "Fighting",
+          "description": "King of the Hill"
         },
         {
-          "name": "Imu Cooking",
-          "description": "Hawaiian practice of cooking in a pit."
+          "name": "Empire",
+          "description": "To conquer the world."
         },
         {
-          "name": "Scuba",
-          "description": ""
+          "name": "Adventure",
+          "description": "Into the Heart of Darkness"
         },
         {
-          "name": "Photography",
-          "description": ""
+          "name": "RPG",
+          "description": "Become Your Dream"
         },
         {
-          "name": "Wind surfing",
-          "description": ""
+          "name": "Tower Defense",
+          "description": "Protect the Queen Mother!"
         },
         {
-          "name": "Psychology",
-          "description": ""
+          "name": "Board Games",
+          "description": "Mind Over Matter"
         },
         {
-          "name": "Motorcycling",
-          "description": ""
+          "name": "Battle Arena",
+          "description": "Pikachu, I Choose You"
         },
         {
-          "name": "Accreditation",
-          "description": ""
+          "name": "Survival",
+          "description": "Only the tough, Be Prepared"
         },
         {
-          "name": "Paddling",
-          "description": ""
+          "name": "Rhythm",
+          "description": "DDR, Get Fit"
         },
         {
-          "name": "Crossfit",
-          "description": ""
+          "name": "MMORPG",
+          "description": "That's a Mouthful"
         },
         {
-          "name": "Cybersecurity",
-          "description": ""
+          "name": "Simulation",
+          "description": "My Dreams are Bigger than Reality"
         },
         {
-          "name": "Surfing",
-          "description": ""
+          "name": "Turn Based Strategy",
+          "description": "The Best Of All!!!"
         },
         {
-          "name": "Computer Vision",
-          "description": ""
-        },
-        {
-          "name": "Martial Arts",
-          "description": ""
-        },
-        {
-          "name": "Evolutionary Computation",
-          "description": ""
+          "name": "Sports",
+          "description": "The Nerdy Jock"
         }
       ]
     },
@@ -91,7 +83,7 @@
           "username": "altenber",
           "bio": "I am an Associate Professor of Information and Computer Sciences at the University of Hawaii.",
           "interests": [
-            "Evolutionary Computation"
+            "RPG"
           ],
           "title": "Associate Professor, Information and Computer Sciences",
           "location": "UH Manoa",
@@ -103,7 +95,7 @@
           "username": "baek",
           "bio": "I am an Associate Professor of Information and Computer Sciences at the University of Hawaii.",
           "interests": [
-            "Computer Vision"
+            "RPG"
           ],
           "title": "Associate Professor, Information and Computer Sciences",
           "location": "UH Manoa",
@@ -115,8 +107,8 @@
           "username": "esb",
           "bio": "I am an Associate Professor of Information and Computer Sciences at the University of Hawaii.",
           "interests": [
-            "Mobile Networks",
-            "Sailing"
+            "RPG",
+            "Tower Defense"
           ],
           "title": "Associate Professor, Information and Computer Sciences",
           "location": "UH Manoa",
@@ -128,8 +120,8 @@
           "username": "binsted",
           "bio": "I am an Associate Professor of Information and Computer Sciences at the University of Hawaii.",
           "interests": [
-            "Mars",
-            "Imu Cooking"
+            "RPG",
+            "First Person Shooter"
           ],
           "title": "Associate Professor, Information and Computer Sciences",
           "location": "UH Manoa",
@@ -142,8 +134,8 @@
           "github": "henricasanova",
           "bio": "I am a Professor of Information and Computer Sciences at the University of Hawaii.",
           "interests": [
-            "Surfing",
-            "Photography"
+            "RPG",
+            "Sports"
           ],
           "title": "Professor, Information and Computer Sciences",
           "location": "UH Manoa",
