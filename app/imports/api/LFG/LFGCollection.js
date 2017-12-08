@@ -20,8 +20,8 @@ class LFGCollection extends BaseCollection {
     super('LFG', new SimpleSchema({
       username: { type: String },
       game: { type: String },
-      starttime: { type: Date, },
-      endtime: { type: Date, },
+      starttime: { type: String, },
+      endtime: { type: String, },
       other: { type: String, optional: true },
     }, { tracker: Tracker }));
   }

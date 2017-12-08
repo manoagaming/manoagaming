@@ -54,7 +54,7 @@ Template.LFG_Page.events({
 
     if (instance.context.isValid()) {
       const docID = LFG.findDoc(FlowRouter.getParam('username'))._id;
-      const id = LFGs.update(docID, { $set: cleanData });
+      const id = LFG.update(docID, { $set: cleanData });
       instance.messageFlags.set(displaySuccessMessage, id);
       instance.messageFlags.set(displayErrorMessages, false);
     } else {
@@ -64,4 +64,4 @@ Template.LFG_Page.events({
   },
 });
 
-$
+
