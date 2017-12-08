@@ -41,18 +41,32 @@ class LFGCollection extends BaseCollection {
    * if one or more interests are not defined, or if github, facebook, and instagram are not URLs.
    * @returns The newly created docID.
    */
-  define ({ username = '', game = '', starttime = '', endtime = '', other = ''}) {
+  define ({ username, game, starttime, endtime, other }) {
     // make sure required fields are OK.
 
+    console.log(username);
+    console.log(game);
+    console.log(starttime);
+    console.log(endtime);
+    console.log(other);
     /*const checkPattern = { username: String, game: String, starttime: Date, endtime: Date, other: String};
     check({ username, game, starttime, endtime, other }, checkPattern);*/
 
     const checkPattern = { username: String, game: String, starttime: String, endtime: String, other: String};
     check({ username, game, starttime, endtime, other }, checkPattern);
 
+    console.log(this.find({ username }).count());
     if (this.find({ username }).count() > 0) {
       throw new Meteor.Error(`${username} already has a pending LFG`);
     }
+
+
+    console.log("You've made it this far");
+    console.log(username);
+    console.log(game);
+    console.log(starttime);
+    console.log(endtime);
+    console.log(other);
 
     return this._collection.insert({ username, game, starttime, endtime, other});
   }

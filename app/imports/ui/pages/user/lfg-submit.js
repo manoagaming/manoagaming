@@ -37,8 +37,8 @@ Template.LFG_Submit_Page.events({
     event.preventDefault();
     const username = FlowRouter.getParam('username'); // schema requires username.
     const game = event.target.Game.value;
-    const starttime = new Date(event.target.Start.value) ;
-    const endtime = new Date(event.target.End.value);
+    const starttime = event.target.Start.value ;
+    const endtime = event.target.End.value;
     const other = event.target.Other.value;
 
     //Check to see if starttime is of Date type, is not being recognized as such by mongo
@@ -58,7 +58,8 @@ Template.LFG_Submit_Page.events({
     console.log(cleanData);
 
     if (instance.context.isValid()) {
-      LFG.define("RsvK6ZT5fAfE2CYYR", { $set: cleanData })
+      console.log({ $set: cleanData });
+      LFG.define({username, game, starttime, endtime, other});
       //const docID = LFG.findDoc(FlowRouter.getParam('username'))._id;
       //const id = LFG.insert(docID, { $set: cleanData });
       instance.messageFlags.set(displaySuccessMessage, "RsvK6ZT5fAfE2CYYR");
