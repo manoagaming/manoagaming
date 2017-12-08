@@ -37,7 +37,7 @@ Template.LFG_Submit_Page.events({
     event.preventDefault();
     const username = FlowRouter.getParam('username'); // schema requires username.
     const game = event.target.Game.value;
-    const starttime = new Date(event.target.Start.value) ;
+    const starttime = new Date(event.target.Start.value);
     const endtime = new Date(event.target.End.value);
     const other = event.target.Other.value;
 
