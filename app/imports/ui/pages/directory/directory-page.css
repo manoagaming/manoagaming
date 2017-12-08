@@ -1,3 +1,14 @@
 .directory-page-body {
   background-color: #00B5AD;
 }
+
+.ui.card {
+  display: inline-block;
+  margin: 10px;
+}
+
+.ui.card,
+.ui.cards>.card {
+  background-color: lightsteelblue;
+  color: white;
+}
