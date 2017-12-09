@@ -83,6 +83,39 @@
       ]
     },
     {
+      "name": "LFGCollection",
+      "contents": [
+        {
+          "username": "jeremy21",
+          "game": "Overwatch",
+          "starttime": "2017-12-03T22:00:00",
+          "endtime": "2017-12-03T22:00:01",
+          "other": "Anyone Welcome"
+        },
+        {
+          "username": "lenj",
+          "game": "Pathfinder",
+          "starttime": "2017-12-03T22:00:00",
+          "endtime": "2017-12-03T22:00:01",
+          "other": "Bring own D20"
+        },
+        {
+          "username": "wyoro",
+          "game": "PUBG",
+          "starttime": "2017-12-03T22:00:00",
+          "endtime": "2017-12-03T22:00:01",
+          "other": ""
+        },
+        {
+          "username": "Derick Crelencia",
+          "game": "CS:GO",
+          "starttime": "2017-12-03T22:00:00",
+          "endtime": "2017-12-03T22:00:01",
+          "other": "Its what kings do"
+        }
+      ]
+    },
+    {
       "name": "ProfileCollection",
       "contents": [
         {

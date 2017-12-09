@@ -1,0 +1,40 @@
+<template name="LFG_Directory">
+
+  <div class="card">
+    <div class="content">
+      <img class="right floated mini ui image" src="{{ lfg.picture }}">
+      <div class="header">
+        {{ lfg.username }}
+        <a class="{{isActiveRoute "Profile_Page"}} item" href="{{pathFor "Profile_Page" username=lfg.username}}">{{ lfg.username }}</a>
+      </div>
+      <div class="meta">
+        {{ lfg.game}}
+      </div>
+      <div class="meta">
+        {{ lfg.starttime}}
+      </div>
+      <div class="meta">
+        {{ lfg.endtime}}
+      </div>
+      <div class="description">
+        {{ lfg.other }}
+      </div>
+
+    </div>
+<!--    <div class="extra content">
+      <div class="ui equal width center aligned grid">
+        <div class="column"><a href="mailto:{{ lfg.username}}@hawaii.edu"><i class="big mail icon"></i></a></div>
+        {{#if lfg.github }}
+          <div class="column"><a href="https://github.com/{{ lfg.github}}"><i class="big github icon"></i></a></div>
+        {{/if}}
+        {{#if lfg.facebook }}
+          <div class="column"><a href="https://facebook.com/{{ lfg.facebook}}"><i class="big facebook icon"></i></a></div>
+        {{/if}}
+        {{#if lfg.instagram }}
+          <div class="column"><a href="https://instagram.com/{{ lfg.instagram}}"><i class="big instagram icon"></i></a></div>
+        {{/if}}
+      </div>
+    </div>-->
+  </div>
+
+</template>

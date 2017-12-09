@@ -29,6 +29,9 @@ Template.LFG_Submit_Page.helpers({
   lfg() {
     return LFG.findDoc(FlowRouter.getParam('username'));
   },
+  count() {
+    return LFG.count();
+  }
 });
 
 

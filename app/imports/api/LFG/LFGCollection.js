@@ -44,6 +44,7 @@ class LFGCollection extends BaseCollection {
   define ({ username, game, starttime, endtime, other }) {
     // make sure required fields are OK.
 
+    console.log("bleh");
     console.log(username);
     console.log(game);
     console.log(starttime);
@@ -91,4 +92,3 @@ class LFGCollection extends BaseCollection {
  * Provides the singleton instance of this class to all other entities.
  */
 export const LFG = new LFGCollection();
-
