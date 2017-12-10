@@ -1,7 +1,46 @@
 <template name="LFG_Page_Directory">
-  <div style="margin-top: 20px" class="ui cards">
+  <div class="ui container">
+    <table class="ui celled table" border="1">
+
+        <thead>
+           <tr>
+             <th>
+               Username
+             </th>
+             <th>
+               Game
+             </th>
+             <th>
+               Start Time
+             </th>
+             <th>
+               End Time
+             </th>
+             <th>
+               Other Information
+             </th>
+           </tr>
+          </thead>
+      <tbody>
+
+          {{# each lfg in lfg }}
+            {{> LFG_Directory lfg=lfg }}
+          {{/each}}
+      </tbody>
+
+      <tfoot></tfoot>
+
+        <tr>
+            <a class="ui button primary blue left floated {{isActiveRoute "LFG_Submit_Page"}} item" href="{{pathFor "LFG_Submit_Page" username=routeUserName}}">Submit an LFG</a>
+        </tr>
+
+    </table>
+  </div>
+
+
+  <!--  <div style="margin-top: 20px" class="ui cards">
     {{#each lfg in lfg }}
       {{> LFG_Directory lfg=lfg }}
     {{/each}}
-  </div>
+  </div>-->
 </template>

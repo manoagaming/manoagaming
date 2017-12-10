@@ -112,6 +112,13 @@
           "starttime": "2017-12-03T22:00:00",
           "endtime": "2017-12-03T22:00:01",
           "other": "Its what kings do"
+        },
+        {
+          "username": "Some Guy",
+          "game": "Saw",
+          "starttime": "2017-12-03T22:00:00",
+          "endtime": "2017-12-03T22:00:01",
+          "other": "I want to play a game"
         }
       ]
     },
