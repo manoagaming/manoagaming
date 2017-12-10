@@ -4,6 +4,7 @@ import { check } from 'meteor/check';
 import { Meteor } from 'meteor/meteor';
 import { _ } from 'meteor/underscore';
 import { Tracker } from 'meteor/tracker';
+import { FlowRouter } from 'meteor/kadira:flow-router';
 
 /** @module LFG */
 
@@ -52,7 +53,7 @@ class LFGCollection extends BaseCollection {
 
     console.log(this.find({ username }).count());
     if (this.find({ username }).count() > 0) {
-      throw new Meteor.Error(`${username} already has a pending LFG`);
+      return this._collection.update(this.findDoc(FlowRouter.getParam('username'))._id, { $set: {username, game, starttime, endtime, other}});
     }
 
 
