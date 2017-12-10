@@ -40,8 +40,8 @@ Template.LFG_Submit_Page.events({
     event.preventDefault();
     const username = FlowRouter.getParam('username'); // schema requires username.
     const game = event.target.Game.value;
-    const starttime = event.target.Start.value ;
-    const endtime = event.target.End.value;
+    const starttime = new Date(event.target.Start.value);
+    const endtime = new Date(event.target.End.value);
     const other = event.target.Other.value;
 
     //Check to see if starttime is of Date type, is not being recognized as such by mongo
@@ -72,4 +72,8 @@ Template.LFG_Submit_Page.events({
       instance.messageFlags.set(displayErrorMessages, true);
     }
   },
+  'click .delete'(event, instance) {
+    console.log("ASdasd");
+    LFG.removeIt(FlowRouter.getParam('username'));
+  }
 });
