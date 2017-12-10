@@ -4,6 +4,7 @@ import { check } from 'meteor/check';
 import { Meteor } from 'meteor/meteor';
 import { _ } from 'meteor/underscore';
 import { Tracker } from 'meteor/tracker';
+import { FlowRouter } from 'meteor/kadira:flow-router';
 
 /** @module LFG */
 
@@ -41,18 +42,27 @@ class LFGCollection extends BaseCollection {
    * if one or more interests are not defined, or if github, facebook, and instagram are not URLs.
    * @returns The newly created docID.
    */
-  define ({ username = '', game = '', starttime = '', endtime = '', other = ''}) {
+  define ({ username, game, starttime, endtime, other }) {
     // make sure required fields are OK.
 
-    /*const checkPattern = { username: String, game: String, starttime: Date, endtime: Date, other: String};
-    check({ username, game, starttime, endtime, other }, checkPattern);*/
-
-    const checkPattern = { username: String, game: String, starttime: String, endtime: String, other: String};
+    const checkPattern = { username: String, game: String, starttime: Date, endtime: Date, other: String};
     check({ username, game, starttime, endtime, other }, checkPattern);
 
+    /*const checkPattern = { username: String, game: String, starttime: String, endtime: String, other: String};
+    check({ username, game, starttime, endtime, other }, checkPattern); */
+
+    console.log(this.find({ username }).count());
     if (this.find({ username }).count() > 0) {
-      throw new Meteor.Error(`${username} already has a pending LFG`);
+      return this._collection.update(this.findDoc(FlowRouter.getParam('username'))._id, { $set: {username, game, starttime, endtime, other}});
     }
+
+
+    console.log("You've made it this far");
+    console.log(username);
+    console.log(game);
+    console.log(starttime);
+    console.log(endtime);
+    console.log(other);
 
     return this._collection.insert({ username, game, starttime, endtime, other});
   }
@@ -77,4 +87,3 @@ class LFGCollection extends BaseCollection {
  * Provides the singleton instance of this class to all other entities.
  */
 export const LFG = new LFGCollection();
-
