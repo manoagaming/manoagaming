@@ -7,12 +7,16 @@ import { Mongo } from 'meteor/mongo'
 
 const displaySuccessMessage = 'displaySuccessMessage';
 const displayErrorMessages = 'displayErrorMessages';
+const displaySuccessMessageRemove = 'displaySuccessMessageRemove';
+const displayErrorMessagesRemove = 'displayErrorMessagesRemove';
 
 Template.LFG_Submit_Page.onCreated(function onCreated() {
   this.subscribe(LFG.getPublicationName());
   this.messageFlags = new ReactiveDict();
   this.messageFlags.set(displaySuccessMessage, false);
+  this.messageFlags.set(displaySuccessMessageRemove, false);
   this.messageFlags.set(displayErrorMessages, false);
+  this.messageFlags.set(displayErrorMessagesRemove, false);
   this.context = LFG.getSchema().namedContext('LFG_Submit_Page');
 });
 
@@ -23,8 +27,17 @@ Template.LFG_Submit_Page.helpers({
   displaySuccessMessage() {
     return Template.instance().messageFlags.get(displaySuccessMessage);
   },
+  successClassRemove() {
+    return Template.instance().messageFlags.get(displaySuccessMessageRemove) ? 'success' : '';
+  },
+  displaySuccessMessageRemove() {
+    return Template.instance().messageFlags.get(displaySuccessMessageRemove);
+  },
   errorClass() {
     return Template.instance().messageFlags.get(displayErrorMessages) ? 'error' : '';
+  },
+  errorClassRemove() {
+    return Template.instance().messageFlags.get(displayErrorMessagesRemove) ? 'error' : '';
   },
   lfg() {
     return LFG.findDoc(FlowRouter.getParam('username'));
@@ -44,11 +57,6 @@ Template.LFG_Submit_Page.events({
     const endtime = new Date(event.target.End.value);
     const other = event.target.Other.value;
 
-    //Check to see if starttime is of Date type, is not being recognized as such by mongo
-    console.log(starttime instanceof Date);
-
-
-
     const insertedLFGData = { username, game, starttime, endtime, other};
 
     // Clear out any old validation errors.
@@ -58,7 +66,7 @@ Template.LFG_Submit_Page.events({
     // Determine validity.
     instance.context.validate(cleanData);
 
-    console.log(cleanData);
+    instance.messageFlags.set(displaySuccessMessageRemove, false);
 
     if (instance.context.isValid()) {
       const docID = LFG.define({username, game, starttime, endtime, other});
@@ -80,6 +88,24 @@ Template.LFG_Submit_Page.events({
     }
   },
   'click .delete'(event, instance) {
-    LFG.removeIt(FlowRouter.getParam('username'));
+    console.log(instance.messageFlags.get(displaySuccessMessage));
+    console.log(instance.messageFlags.get(displayErrorMessages));
+    console.log(instance.messageFlags.get(displaySuccessMessageRemove));
+    console.log(instance.messageFlags.get(displayErrorMessagesRemove));
+    instance.messageFlags.set(displayErrorMessages, false);
+    instance.messageFlags.set(displaySuccessMessage, false);
+
+
+    const user = (FlowRouter.getParam('username'));
+    event.preventDefault();
+    if (LFG.find({ user }).count() > 0) {
+      LFG.removeIt(user)
+      instance.messageFlags.set(displayErrorMessagesRemove, false);
+      instance.messageFlags.set(displaySuccessMessageRemove, true);
+    }
+    else {
+      instance.messageFlags.set(displayErrorMessagesRemove, true);
+      instance.messageFlags.set(displaySuccessMessageRemove, false);
+    }
   }
 });
