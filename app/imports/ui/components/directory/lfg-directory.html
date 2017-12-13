@@ -1,7 +1,22 @@
 <template name="LFG_Directory">
   <tr>
-    <td>
-      {{ lfg.username }}
+    <td id="userCell">
+      <div id ="username">
+        <!--{{ lfg.username }}-->
+        <a class="{{isActiveRoute "Profile_Page"}} item" href="{{pathFor "Profile_Page" username=lfg.username}}">{{ lfg.username }}</a>
+      </div>
+      <script>
+        var a = document.createElement('a');
+        var i = document.createElement('i');
+        var href = "mailto:" + document.getElementById("username").textContent.replace(/\s+/g, '') + "@hawaii.edu";
+
+        a.setAttribute('href', href);
+        i.setAttribute('class', 'mail icon')
+
+        a.appendChild(i);
+        document.getElementById("userCell").appendChild(a);
+        console.log("Works in default firefox. Chrome handles the mailto: functionality different than firefox, you'll need to check your handlers are fine. If you use IE lol why ")
+      </script>
     </td>
     <td>
       {{ lfg.game }}

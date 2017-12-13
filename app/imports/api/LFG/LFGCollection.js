@@ -45,11 +45,11 @@ class LFGCollection extends BaseCollection {
   define ({ username, game, starttime, endtime, other }) {
     // make sure required fields are OK.
 
-    const checkPattern = { username: String, game: String, starttime: Date, endtime: Date, other: String};
-    check({ username, game, starttime, endtime, other }, checkPattern);
+/*    const checkPattern = { username: String, game: String, starttime: Date, endtime: Date, other: String};
+    check({ username, game, starttime, endtime, other }, checkPattern);*/
 
-    /*const checkPattern = { username: String, game: String, starttime: String, endtime: String, other: String};
-    check({ username, game, starttime, endtime, other }, checkPattern); */
+    const checkPattern = { username: String, game: String, starttime: String, endtime: String, other: String};
+    check({ username, game, starttime, endtime, other }, checkPattern); 
 
     console.log(this.find({ username }).count());
     if (this.find({ username }).count() > 0) {
