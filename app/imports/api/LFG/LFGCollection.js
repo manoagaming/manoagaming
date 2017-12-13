@@ -78,7 +78,7 @@ class LFGCollection extends BaseCollection {
     const game = doc.game;
     const starttime = doc.starttime;
     const endtime = doc.endtime;
-    const other = doc.other;
+    const other = doc.other; 
     return { username, game, starttime, endtime, other};
   }
 }
