@@ -55,13 +55,13 @@ Template.Profile_Page.events({
     const steamIGN = event.target.Steam.value;
     const originIGN = event.target.Origin.value;
     const psnIGN = event.target.PSN.value;
-    const xboxliveIGN = event.target.xBoxLive.value;
+    const xboxliveIGN = event.target.xboxIGN.value;
     // Consoles
-    const ps = event.target.PS.value;
+    const ps = event.target.ps.value;
     const xbox = event.target.xbox.value;
-    const nintendo = event.target.PSN.value;
-    const pc = event.target.PC.value;
-    const mobile = event.target.Mobile.value;
+    const nintendo = event.target.nintendo.value;
+    const pc = event.target.pc.value;
+    const mobile = event.target.mobile.value;
     // const picture = event.target.Picture.value;
     // const github = event.target.Github.value;
     // const facebook = event.target.Facebook.value;
