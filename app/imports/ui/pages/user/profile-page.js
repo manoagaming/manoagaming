@@ -56,13 +56,13 @@ Template.Profile_Page.events({
     const originIGN = event.target.Origin.value;
     const psnIGN = event.target.PSN.value;
     const xboxliveIGN = event.target.xBoxLive.value;
-    // Consoles
-    const ps = event.target.ps.value;
+   // Consoles
+/*    const ps = event.target.ps.value;
     const xbox = event.target.xbox.value;
     const nintendo = event.target.nintendo.value;
     const pc = event.target.pc.value;
     const mobile = event.target.mobile.value;
-    // const picture = event.target.Picture.value;
+*/    // const picture = event.target.Picture.value;
     // const github = event.target.Github.value;
     // const facebook = event.target.Facebook.value;
     // const instagram = event.target.Instagram.value;
@@ -71,7 +71,7 @@ Template.Profile_Page.events({
     const interests = _.map(selectedInterests, (option) => option.value);
 
     const updatedProfileData = { firstName, lastName, username, email, games, steamIGN, originIGN, psnIGN,
-      xboxliveIGN, ps, xbox, nintendo, pc, mobile, bio, interests };
+      xboxliveIGN, /* ps, xbox, nintendo, pc, mobile, */ bio, interests };
 
     // Clear out any old validation errors.
     instance.context.reset();
