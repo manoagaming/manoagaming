@@ -55,7 +55,7 @@ Template.Profile_Page.events({
     const steamIGN = event.target.Steam.value;
     const originIGN = event.target.Origin.value;
     const psnIGN = event.target.PSN.value;
-    const xboxliveIGN = event.target.xboxIGN.value;
+    const xboxliveIGN = event.target.xBoxLive.value;
     // Consoles
     const ps = event.target.ps.value;
     const xbox = event.target.xbox.value;
