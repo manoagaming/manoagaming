@@ -4,7 +4,8 @@
 
       <form class="ui equal width form filter-data-form">
         <div class="field">
-          {{> Select_Form_Control label="Interests" options=interests multiple=true }}
+          <div class="item"><h2>Genres</h2></div>
+          {{> Select_Form_Control options=interests multiple=true }}
         </div>
         <button class="ui blue button" type="submit">Filter</button>
       </form>
