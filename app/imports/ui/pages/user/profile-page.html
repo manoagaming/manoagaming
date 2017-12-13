@@ -15,22 +15,22 @@
       </div>
 
       <div class="field">
-        {{> Text_Form_Control label="Username" placeholder="UH user ID" value=profile.title errorMessage=(fieldError "title")}}
-        {{> Text_Form_Control label="Email" placeholder="UH user ID@hawaii.edu" value=profile.location errorMessage=(fieldError "location")}}
-        {{> Text_Form_Control label="Games Currently Playing" placeholder="http://foo.com/shot.jpg" value=profile.picture errorMessage=(fieldError "picture")}}
+        {{> Text_Form_Control label="Username" placeholder="UH user ID" value=profile.username errorMessage=(fieldError "username")}}
+        {{> Text_Form_Control label="Email" placeholder="UH user ID@hawaii.edu" value=profile.email errorMessage=(fieldError "email")}}
+        {{> Text_Form_Control name="Games" label="Games Currently Playing" placeholder="none" value=profile.games errorMessage=(fieldError "games")}}
       </div>
 
       <div class="fields">
 
-        {{> Social_Network_Form_Control label="Steam" icon="steam" placeholder="Steam User Name" value=profile.steam errorMessage=(fieldError "steam")}}
-        {{> Social_Network_Form_Control label="Origin" icon="desktop" placeholder="Origin Account IGN" value=profile.origin errorMessage=(fieldError "origin")}}
+        {{> Social_Network_Form_Control name="steamIGN" label="Steam" icon="steam" placeholder="Steam User Name" value=profile.steam errorMessage=(fieldError "steam")}}
+        {{> Social_Network_Form_Control name="originIGN" label="Origin" icon="desktop" placeholder="Origin Account IGN" value=profile.origin errorMessage=(fieldError "origin")}}
 
       </div>
 
       <div class="fields">
 
-        {{> Social_Network_Form_Control label="PSN" icon="game" placeholder="PlayStation User Name" value=profile.psn errorMessage=(fieldError "psn")}}
-        {{> Social_Network_Form_Control label="XBOX" icon="window close icon" placeholder="xBox Gamer Tag" value=profile.xbox errorMessage=(fieldError "xbox")}}
+        {{> Social_Network_Form_Control name="psnIGN" label="PSN" icon="game" placeholder="PlayStation User Name" value=profile.psn errorMessage=(fieldError "psn")}}
+        {{> Social_Network_Form_Control name="xboxIGN" label="XBOX" icon="window close icon" placeholder="xBox Gamer Tag" value=profile.xbox errorMessage=(fieldError "xbox")}}
 
 
       </div>
