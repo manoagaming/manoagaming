@@ -51,7 +51,6 @@ class LFGCollection extends BaseCollection {
     /*const checkPattern = { username: String, game: String, starttime: String, endtime: String, other: String};
     check({ username, game, starttime, endtime, other }, checkPattern); */
 
-    console.log(this.find({ username }).count());
     if (this.find({ username }).count() > 0) {
       return this._collection.update(this.findDoc(FlowRouter.getParam('username'))._id, { $set: {username, game, starttime, endtime, other}});
     }
@@ -63,6 +62,7 @@ class LFGCollection extends BaseCollection {
     console.log(starttime);
     console.log(endtime);
     console.log(other);
+
 
     return this._collection.insert({ username, game, starttime, endtime, other});
   }
