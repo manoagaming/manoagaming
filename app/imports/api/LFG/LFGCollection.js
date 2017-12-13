@@ -49,7 +49,7 @@ class LFGCollection extends BaseCollection {
     check({ username, game, starttime, endtime, other }, checkPattern);*/
 
     const checkPattern = { username: String, game: String, starttime: String, endtime: String, other: String};
-    check({ username, game, starttime, endtime, other }, checkPattern); 
+    check({ username, game, starttime, endtime, other }, checkPattern);
 
     console.log(this.find({ username }).count());
     if (this.find({ username }).count() > 0) {
