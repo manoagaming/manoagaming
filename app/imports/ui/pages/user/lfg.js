@@ -27,9 +27,9 @@ Template.LFG_Page.helpers({
 
   routeUserName() {
       return FlowRouter.getParam('username');
-  }
+  },
 
-/*  interests() {
+  interests() {
     return _.map(Interests.findAll(),
         function makeInterestObject(interest) {
           return {
@@ -37,14 +37,13 @@ Template.LFG_Page.helpers({
             selected: _.contains(Template.instance().messageFlags.get(selectedInterestsKey), interest.name),
           };
         });
-  },*/
+  },
 });
 
-/*Template.Filter_Page.events({
+Template.Filter_Page.events({
   'submit .filter-data-form'(event, instance) {
     event.preventDefault();
     const selectedOptions = _.filter(event.target.Interests.selectedOptions, (option) => option.selected);
     instance.messageFlags.set(selectedInterestsKey, _.map(selectedOptions, (option) => option.value));
   },
-});*/
-
+});
