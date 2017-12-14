@@ -1,5 +1,6 @@
 import SimpleSchema from 'simpl-schema';
 import BaseCollection from '/imports/api/base/BaseCollection';
+import { Interests } from '/imports/api/interest/InterestCollection';
 import { check } from 'meteor/check';
 import { Meteor } from 'meteor/meteor';
 import { _ } from 'meteor/underscore';
@@ -24,6 +25,8 @@ class LFGCollection extends BaseCollection {
       starttime: { type: Date, },
       endtime: { type: Date, },
       other: { type: String, optional: true },
+      interests: { type: Array, optional: true },
+      'interests.$': { type: String},
     }, { tracker: Tracker }));
   }
 
@@ -42,7 +45,7 @@ class LFGCollection extends BaseCollection {
    * if one or more interests are not defined, or if github, facebook, and instagram are not URLs.
    * @returns The newly created docID.
    */
-  define ({ username, game, starttime, endtime, other }) {
+  define ({ username, game, starttime, endtime, other, interests }) {
     // make sure required fields are OK.
 
 /*    const checkPattern = { username: String, game: String, starttime: Date, endtime: Date, other: String};
@@ -51,11 +54,17 @@ class LFGCollection extends BaseCollection {
     const checkPattern = { username: String, game: String, starttime: String, endtime: String, other: String};
     check({ username, game, starttime, endtime, other }, checkPattern);
 
-    console.log(this.find({ username }).count());
     if (this.find({ username }).count() > 0) {
-      return this._collection.update(this.findDoc(FlowRouter.getParam('username'))._id, { $set: {username, game, starttime, endtime, other}});
+      return this._collection.update(this.findDoc(FlowRouter.getParam('username'))._id, { $set: {username, game, starttime, endtime, other, interests}});
     }
 
+    // Throw an error if any of the passed Interest names are not defined.
+    Interests.assertNames(interests);
+
+    // Throw an error if there are duplicates in the passed interest names.
+    if (interests.length !== _.uniq(interests).length) {
+      throw new Meteor.Error(`${interests} contains duplicates`);
+    }
 
     console.log("You've made it this far");
     console.log(username);
@@ -64,7 +73,7 @@ class LFGCollection extends BaseCollection {
     console.log(endtime);
     console.log(other);
 
-    return this._collection.insert({ username, game, starttime, endtime, other});
+    return this._collection.insert({ username, game, starttime, endtime, other, interests});
   }
 
   /**
@@ -78,8 +87,9 @@ class LFGCollection extends BaseCollection {
     const game = doc.game;
     const starttime = doc.starttime;
     const endtime = doc.endtime;
-    const other = doc.other; 
-    return { username, game, starttime, endtime, other};
+    const other = doc.other;
+    const interests = doc.interests;
+    return { username, game, starttime, endtime, other, interests};
   }
 }
 
