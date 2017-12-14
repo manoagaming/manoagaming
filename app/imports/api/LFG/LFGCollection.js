@@ -66,13 +66,6 @@ class LFGCollection extends BaseCollection {
       throw new Meteor.Error(`${interests} contains duplicates`);
     }
 
-    console.log("You've made it this far");
-    console.log(username);
-    console.log(game);
-    console.log(starttime);
-    console.log(endtime);
-    console.log(other);
-
     return this._collection.insert({ username, game, starttime, endtime, other, interests});
   }
 
