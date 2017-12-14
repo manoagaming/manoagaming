@@ -17,7 +17,7 @@ Template.LFG_Page.onCreated(function onCreated() {
 });
 
 Template.LFG_Page.helpers({
-  profiles() {
+/*  profiles() {
     // Initialize selectedInterests to all of them if messageFlags is undefined.
     if (!Template.instance().messageFlags.get(selectedInterestsKey)) {
       Template.instance().messageFlags.set(selectedInterestsKey, _.map(Interests.findAll(), interest => interest.name));
@@ -26,7 +26,7 @@ Template.LFG_Page.helpers({
     const allProfiles = Profiles.findAll();
     const selectedInterests = Template.instance().messageFlags.get(selectedInterestsKey);
     return _.filter(allProfiles, profile => _.intersection(profile.interests, selectedInterests).length > 0);
-  },
+  },*/
   lfg() {
     // Initialize selectedInterests to all of them if messageFlags is undefined.
     if (!Template.instance().messageFlags.get(selectedInterestsKey)) {

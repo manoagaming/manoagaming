@@ -3,7 +3,7 @@ import { ReactiveDict } from 'meteor/reactive-dict';
 import { FlowRouter } from 'meteor/kadira:flow-router';
 import { _ } from 'meteor/underscore';
 import { LFG } from '/imports/api/LFG/LFGCollection';
-
+import { Interests } from '/imports/api/interest/InterestCollection';
 import { Mongo } from 'meteor/mongo'
 
 const displaySuccessMessage = 'displaySuccessMessage';
@@ -12,6 +12,7 @@ const displaySuccessMessageRemove = 'displaySuccessMessageRemove';
 const displayErrorMessagesRemove = 'displayErrorMessagesRemove';
 
 Template.LFG_Submit_Page.onCreated(function onCreated() {
+  this.subscribe(Interests.getPublicationName());
   this.subscribe(LFG.getPublicationName());
   this.messageFlags = new ReactiveDict();
   this.messageFlags.set(displaySuccessMessage, false);
@@ -45,7 +46,15 @@ Template.LFG_Submit_Page.helpers({
   },
   count() {
     return LFG.count();
-  }
+  },
+  interests() {
+    const lfg = LFG.findDoc(FlowRouter.getParam('username'));
+    const selectedInterests = lfg.interests;
+    return lfg && _.map(Interests.findAll(),
+        function makeInterestObject(interest) {
+          return { label: interest.name, selected: _.contains(selectedInterests, interest.name) };
+        });
+  },
 });
 
 
@@ -54,11 +63,14 @@ Template.LFG_Submit_Page.events({
     event.preventDefault();
     const username = FlowRouter.getParam('username'); // schema requires username.
     const game = event.target.Game.value;
-    const starttime = new Date(event.target.Start.value);
-    const endtime = new Date(event.target.End.value);
+    const starttime = event.target.Start.value;
+    const endtime = event.target.End.value;
     const other = event.target.Other.value;
+    const selectedInterests = _.filter(event.target.Interests.selectedOptions, (option) => option.selected);
+    const interests = _.map(selectedInterests, (option) => option.value);
 
-    const insertedLFGData = { username, game, starttime, endtime, other};
+
+    const insertedLFGData = { username, game, starttime, endtime, other, interests };
 
     // Clear out any old validation errors.
     instance.context.reset();
@@ -70,7 +82,7 @@ Template.LFG_Submit_Page.events({
     instance.messageFlags.set(displaySuccessMessageRemove, false);
 
     if (instance.context.isValid()) {
-      const docID = LFG.define({username, game, starttime, endtime, other});
+      const docID = LFG.define({username, game, starttime, endtime, other, interests });
 /*      var id;
       if (docID == false) {
         docID = LFG.findDoc(FlowRouter.getParam('username'))._id;
@@ -100,7 +112,7 @@ Template.LFG_Submit_Page.events({
     const user = (FlowRouter.getParam('username'));
     event.preventDefault();
     if (LFG.find({ user }).count() > 0) {
-      LFG.removeIt(user)
+      LFG.removeIt(user);
       instance.messageFlags.set(displayErrorMessagesRemove, false);
       instance.messageFlags.set(displaySuccessMessageRemove, true);
     }
