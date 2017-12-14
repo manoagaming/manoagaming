@@ -26,12 +26,16 @@ class ProfileCollection extends BaseCollection {
       bio: { type: String, optional: true },
       interests: { type: Array, optional: true },
       'interests.$': { type: String },
-      title: { type: String, optional: true },
-      location: { type: String, optional: true },
-      picture: { type: SimpleSchema.RegEx.Url, optional: true },
-      github: { type: SimpleSchema.RegEx.Url, optional: true },
-      facebook: { type: SimpleSchema.RegEx.Url, optional: true },
-      instagram: { type: SimpleSchema.RegEx.Url, optional: true },
+      games: { type: String, optional: true },
+      steamIGN: { type: String, optional: true },
+      originIGN: { type: String, optional: true },
+      psnIGN: { type: String, optional: true },
+      xboxliveIGN: { type: String, optional: true },
+      ps: { type: Boolean, optional: true },
+      xbox: { type: Boolean, optional: true },
+      nintendo: { type: Boolean, optional: true },
+      pc: { type: Boolean, optional: true },
+      mobile: { type: Boolean, optional: true },
     }, { tracker: Tracker }));
   }
 
@@ -56,12 +60,14 @@ class ProfileCollection extends BaseCollection {
    * if one or more interests are not defined, or if github, facebook, and instagram are not URLs.
    * @returns The newly created docID.
    */
-  define({ firstName = '', lastName = '', username, bio = '', interests = [], picture = '', title = '', location = ' ',
-           github = '', facebook = '', instagram = '' }) {
+  define({ firstName = '', lastName = '', username, bio = '', interests = [], games = '', steamIGN = '', originIGN = '',
+           psnIGN = '', xboxliveIGN = '', ps = true, xbox = true, nintendo = true, pc = true, mobile = true }) {
     // make sure required fields are OK.
-    const checkPattern = { firstName: String, lastName: String, username: String, bio: String, picture: String,
-      title: String, location: String };
-    check({ firstName, lastName, username, bio, picture, title, location }, checkPattern);
+    const checkPattern = { firstName: String, lastName: String, username: String, bio: String, games: String,
+      steamIGN: String, originIGN: String, psnIGN: String, xboxliveIGN: String, ps: Boolean, xbox: Boolean,
+      nintendo: Boolean, pc: Boolean, mobile: Boolean };
+    check({ firstName, lastName, username, bio, games, steamIGN, originIGN, psnIGN, xboxliveIGN,
+      ps, xbox, nintendo, pc, mobile }, checkPattern);
 
     if (this.find({ username }).count() > 0) {
       throw new Meteor.Error(`${username} is previously defined in another Profile`);
@@ -75,8 +81,8 @@ class ProfileCollection extends BaseCollection {
       throw new Meteor.Error(`${interests} contains duplicates`);
     }
 
-    return this._collection.insert({ firstName, lastName, username, bio, interests, picture, title, github,
-      facebook, instagram, location });
+    return this._collection.insert({ firstName, lastName, username, bio, interests, games, steamIGN, originIGN,
+      psnIGN, xboxliveIGN, ps, xbox, nintendo, pc, mobile });
   }
 
   /**
@@ -91,13 +97,19 @@ class ProfileCollection extends BaseCollection {
     const username = doc.username;
     const bio = doc.bio;
     const interests = doc.interests;
-    const picture = doc.picture;
-    const title = doc.title;
-    const location = doc.location;
-    const github = doc.github;
-    const facebook = doc.facebook;
-    const instagram = doc.instagram;
-    return { firstName, lastName, username, bio, interests, picture, title, github, facebook, instagram, location };
+    //const picture = doc.picture;
+    const games = doc.games;
+    const steamIGN = doc.steamIGN;
+    const originIGN = doc.originIGN;
+    const psnIGN = doc.psnIGN;
+    const xboxliveIGN = doc.xboxliveIGN;
+    const ps = doc.ps;
+    const xbox = doc.xbox;
+    const nintendo = doc.nintendo;
+    const pc = doc.pc;
+    const mobile = doc.mobile;
+    return { firstName, lastName, username, bio, interests, games, steamIGN, originIGN, psnIGN, xboxliveIGN,
+      ps, xbox, nintendo, pc, mobile };
   }
 }
 

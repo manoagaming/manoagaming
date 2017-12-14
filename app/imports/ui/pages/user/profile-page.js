@@ -81,6 +81,7 @@ Template.Profile_Page.events({
     const cleanData = Profiles.getSchema().clean(updatedProfileData);
     // Determine validity.
     instance.context.validate(cleanData);
+    console.log(cleanData);
 
     if (instance.context.isValid()) {
       const docID = Profiles.findDoc(FlowRouter.getParam('username'))._id;
