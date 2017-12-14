@@ -82,10 +82,7 @@ Template.LFG_Submit_Page.events({
 
     const std = new Date(starttime);
     const etd = new Date(endtime);
-    console.log(std);
-    console.log(etd);
-    console.log(+std < +etd);
-    console.log(+std > +etd);
+
     if (+std > +etd) {
       failflag = true;
     }
@@ -95,8 +92,9 @@ Template.LFG_Submit_Page.events({
     }
 
     var regEx = /^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}$/
-    if (starttime != regEx || endtime != regEx) {
-      console.log("here weogo");
+
+    if (!regEx.test(starttime) || !regEx.test(endtime)) {
+      failflag = true;
     }
 
     instance.messageFlags.set(displaySuccessMessageRemove, false);
