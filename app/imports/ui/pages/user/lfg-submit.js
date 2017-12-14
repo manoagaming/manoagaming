@@ -92,12 +92,17 @@ Template.LFG_Submit_Page.events({
     else
       if (+std < +date || +etd < +date) {
         failflag = true;
-      }
+    }
+
+    var regEx = /^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}$/
+    if (starttime != regEx || endtime != regEx) {
+      console.log("here weogo");
+    }
 
     instance.messageFlags.set(displaySuccessMessageRemove, false);
     if (instance.context.isValid() && !failflag) {
       const docID = LFG.define({ username, game, starttime, endtime, other, interests });
-      
+
       instance.messageFlags.set(displaySuccessMessage, docID);
       instance.messageFlags.set(displayErrorMessages, false);
     }
