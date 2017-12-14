@@ -34,6 +34,12 @@ Template.LFG_Page.helpers({
     }
     // Find all profiles with the currently selected interests.
     const allLFGs = LFG.findAll();
+
+    _.each(allLFGs, function(currlfg) {
+      if(currlfg.date < new Date()) {
+        LFG.removeIt(currlfg.username);
+      }
+    });
     const selectedInterests = Template.instance().messageFlags.get(selectedInterestsKey);
     return _.filter(allLFGs, lfg => _.intersection(lfg.interests, selectedInterests).length > 0);
   },
