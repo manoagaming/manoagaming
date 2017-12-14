@@ -55,13 +55,15 @@ Template.Profile_Page.events({
     const steamIGN = event.target.Steam.value;
     const originIGN = event.target.Origin.value;
     const psnIGN = event.target.PSN.value;
-    const xboxliveIGN = event.target.xBoxLive.value;
+    const xboxliveIGN = event.target.XBOX.value;
     // Consoles
+/*
     const ps = event.target.PS.value;
     const xbox = event.target.xbox.value;
     const nintendo = event.target.PSN.value;
     const pc = event.target.PC.value;
     const mobile = event.target.Mobile.value;
+*/
     // const picture = event.target.Picture.value;
     // const github = event.target.Github.value;
     // const facebook = event.target.Facebook.value;
@@ -71,7 +73,7 @@ Template.Profile_Page.events({
     const interests = _.map(selectedInterests, (option) => option.value);
 
     const updatedProfileData = { firstName, lastName, username, email, games, steamIGN, originIGN, psnIGN,
-      xboxliveIGN, ps, xbox, nintendo, pc, mobile, bio, interests };
+      xboxliveIGN, /* ps, xbox, nintendo, pc, mobile, */  bio, interests };
 
     // Clear out any old validation errors.
     instance.context.reset();
@@ -79,6 +81,7 @@ Template.Profile_Page.events({
     const cleanData = Profiles.getSchema().clean(updatedProfileData);
     // Determine validity.
     instance.context.validate(cleanData);
+    console.log(cleanData);
 
     if (instance.context.isValid()) {
       const docID = Profiles.findDoc(FlowRouter.getParam('username'))._id;
