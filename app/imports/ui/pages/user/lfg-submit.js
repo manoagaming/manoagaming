@@ -59,6 +59,8 @@ Template.LFG_Submit_Page.helpers({
 Template.LFG_Submit_Page.events({
   'submit .lfg-data-form'(event, instance) {
     event.preventDefault();
+    let failflag = false;
+    const date = new Date();
     const username = FlowRouter.getParam('username'); // schema requires username.
     const game = event.target.Game.value;
     const starttime = event.target.Start.value;
@@ -90,6 +92,19 @@ Template.LFG_Submit_Page.events({
         id = docID;
       }*/
 
+    const std = new Date(starttime);
+    const etd = new Date(endtime);
+      console.log(std);
+      console.log(etd);
+      console.log(dates.compare(std, etd);
+    if (std < etd) {
+      failflag = true;
+    }
+
+    else if (std < date || etd < date) {
+        failflag = true;
+    }
+
       instance.messageFlags.set(displaySuccessMessage, docID);
       instance.messageFlags.set(displayErrorMessages, false);
     } else {
@@ -110,7 +125,7 @@ Template.LFG_Submit_Page.events({
     const user = (FlowRouter.getParam('username'));
     event.preventDefault();
 
-    if (LFG.find({ username: user }).count() > 0) {
+    if (LFG.find({ username: user }).count() > 0 && !failflag) {
       LFG.removeIt(user);
 
       instance.messageFlags.set(displayErrorMessagesRemove, false);
