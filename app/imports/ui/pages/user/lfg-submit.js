@@ -57,6 +57,7 @@ Template.LFG_Submit_Page.helpers({
 
 
 Template.LFG_Submit_Page.events({
+
   'submit .lfg-data-form'(event, instance) {
     event.preventDefault();
     let failflag = false;
@@ -79,35 +80,28 @@ Template.LFG_Submit_Page.events({
     // Determine validity.
     instance.context.validate(cleanData);
 
-    instance.messageFlags.set(displaySuccessMessageRemove, false);
-    const user = (FlowRouter.getParam('username'));
-    if (instance.context.isValid()) {
-      const docID = LFG.define({username, game, starttime, endtime, other, interests });
-/*      var id;
-      if (docID == false) {
-        docID = LFG.findDoc(FlowRouter.getParam('username'))._id;
-        id = LFG.update(docID, { $set: cleanData });
-      }
-      else {
-        id = docID;
-      }*/
-
     const std = new Date(starttime);
     const etd = new Date(endtime);
-      console.log(std);
-      console.log(etd);
-      console.log(dates.compare(std, etd);
-    if (std < etd) {
+    console.log(std);
+    console.log(etd);
+    console.log(+std < +etd);
+    console.log(+std > +etd);
+    if (+std > +etd) {
       failflag = true;
     }
-
-    else if (std < date || etd < date) {
+    else
+      if (+std < +date || +etd < +date) {
         failflag = true;
-    }
+      }
 
+    instance.messageFlags.set(displaySuccessMessageRemove, false);
+    if (instance.context.isValid() && !failflag) {
+      const docID = LFG.define({ username, game, starttime, endtime, other, interests });
+      
       instance.messageFlags.set(displaySuccessMessage, docID);
       instance.messageFlags.set(displayErrorMessages, false);
-    } else {
+    }
+    else {
 
       instance.messageFlags.set(displaySuccessMessage, false);
       instance.messageFlags.set(displayErrorMessages, true);
@@ -125,7 +119,7 @@ Template.LFG_Submit_Page.events({
     const user = (FlowRouter.getParam('username'));
     event.preventDefault();
 
-    if (LFG.find({ username: user }).count() > 0 && !failflag) {
+    if (LFG.find({ username: user }).count() > 0) {
       LFG.removeIt(user);
 
       instance.messageFlags.set(displayErrorMessagesRemove, false);
