@@ -71,6 +71,14 @@
         {
           "name": "Sports",
           "description": "The Nerdy Jock"
+        },
+        {
+          "name": "Horror",
+          "description": "3Spooky5Me"
+        },
+        {
+          "name": "Crafting",
+          "description": "Rusty Pickaxes"
         }
       ]
     },
@@ -84,6 +92,7 @@
           "endtime": "2017-12-03T22:00:01",
           "other": "Anyone Welcome",
           "interests" : [
+            "RPG"
 
           ]
         },
@@ -94,7 +103,7 @@
           "endtime": "2017-12-03T22:00:01",
           "other": "Bring own D20",
           "interests" : [
-
+            "RPG"
           ]
         },
         {
@@ -104,7 +113,7 @@
           "endtime": "2017-12-03T22:00:01",
           "other": "",
           "interests" : [
-
+            "RPG"
           ]
         },
         {
@@ -114,7 +123,7 @@
           "endtime": "2017-12-03T22:00:01",
           "other": "Its what kings do",
           "interests" : [
-
+            "RPG"
           ]
         },
         {
@@ -124,7 +133,9 @@
           "endtime": "2017-12-03T22:00:01",
           "other": "I want to play a game",
           "interests" : [
-
+            "RPG",
+            "Crafting",
+            "Horror"
           ]
         }
       ]

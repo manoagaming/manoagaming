@@ -3,6 +3,7 @@ import { ReactiveDict } from 'meteor/reactive-dict';
 import { FlowRouter } from 'meteor/kadira:flow-router';
 import { _ } from 'meteor/underscore';
 import { LFG } from '/imports/api/LFG/LFGCollection';
+
 import { Mongo } from 'meteor/mongo'
 
 const displaySuccessMessage = 'displaySuccessMessage';

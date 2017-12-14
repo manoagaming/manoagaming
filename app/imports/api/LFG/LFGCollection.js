@@ -56,7 +56,7 @@ class LFGCollection extends BaseCollection {
 
     console.log(this.find({ username }).count());
     if (this.find({ username }).count() > 0) {
-      return this._collection.update(this.findDoc(FlowRouter.getParam('username'))._id, { $set: {username, game, starttime, endtime, other}});
+      return this._collection.update(this.findDoc(FlowRouter.getParam('username'))._id, { $set: {username, game, starttime, endtime, other, interests}});
     }
 
     // Throw an error if any of the passed Interest names are not defined.
