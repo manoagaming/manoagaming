@@ -36,7 +36,9 @@ Template.LFG_Page.helpers({
     const allLFGs = LFG.findAll();
 
     _.each(allLFGs, function(currlfg) {
-      if(currlfg.date < new Date()) {
+      console.log(currlfg.endtime);
+      console.log(new Date());
+      if(currlfg.endtime < new Date()) {
         LFG.removeIt(currlfg.username);
       }
     });
