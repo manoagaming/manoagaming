@@ -73,12 +73,7 @@ class LFGCollection extends BaseCollection {
     console.log(endtime);
     console.log(other);
 
-
-
-    return this._collection.insert({ username, game, starttime, endtime, other});
-=======
     return this._collection.insert({ username, game, starttime, endtime, other, interests});
->>>>>>> 74d4c2115ca553f963c8fd45d375f1a1c938445d
   }
 
   /**

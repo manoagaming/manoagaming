@@ -80,7 +80,7 @@ Template.LFG_Submit_Page.events({
     instance.context.validate(cleanData);
 
     instance.messageFlags.set(displaySuccessMessageRemove, false);
-
+    const user = (FlowRouter.getParam('username'));
     if (instance.context.isValid()) {
       const docID = LFG.define({username, game, starttime, endtime, other, interests });
 /*      var id;
@@ -92,10 +92,10 @@ Template.LFG_Submit_Page.events({
         id = docID;
       }*/
 
-
       instance.messageFlags.set(displaySuccessMessage, docID);
       instance.messageFlags.set(displayErrorMessages, false);
     } else {
+
       instance.messageFlags.set(displaySuccessMessage, false);
       instance.messageFlags.set(displayErrorMessages, true);
     }
@@ -111,12 +111,15 @@ Template.LFG_Submit_Page.events({
 
     const user = (FlowRouter.getParam('username'));
     event.preventDefault();
-    if (LFG.find({ user }).count() > 0) {
+
+    if (LFG.find({ username: user }).count() > 0) {
       LFG.removeIt(user);
+
       instance.messageFlags.set(displayErrorMessagesRemove, false);
       instance.messageFlags.set(displaySuccessMessageRemove, true);
     }
     else {
+      
       instance.messageFlags.set(displayErrorMessagesRemove, true);
       instance.messageFlags.set(displaySuccessMessageRemove, false);
     }
