@@ -57,8 +57,11 @@ Template.LFG_Submit_Page.helpers({
 
 
 Template.LFG_Submit_Page.events({
+
   'submit .lfg-data-form'(event, instance) {
     event.preventDefault();
+    let failflag = false;
+    const date = new Date();
     const username = FlowRouter.getParam('username'); // schema requires username.
     const game = event.target.Game.value;
     const starttime = event.target.Start.value;
@@ -77,22 +80,31 @@ Template.LFG_Submit_Page.events({
     // Determine validity.
     instance.context.validate(cleanData);
 
+    const std = new Date(starttime);
+    const etd = new Date(endtime);
+
+    if (+std > +etd) {
+      failflag = true;
+    }
+    else
+      if (+std < +date || +etd < +date) {
+        failflag = true;
+    }
+
+    var regEx = /^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}$/
+
+    if (!regEx.test(starttime) || !regEx.test(endtime)) {
+      failflag = true;
+    }
+
     instance.messageFlags.set(displaySuccessMessageRemove, false);
-    const user = (FlowRouter.getParam('username'));
-    if (instance.context.isValid()) {
-      const docID = LFG.define({username, game, starttime, endtime, other, interests });
-/*      var id;
-      if (docID == false) {
-        docID = LFG.findDoc(FlowRouter.getParam('username'))._id;
-        id = LFG.update(docID, { $set: cleanData });
-      }
-      else {
-        id = docID;
-      }*/
+    if (instance.context.isValid() && !failflag) {
+      const docID = LFG.define({ username, game, starttime, endtime, other, interests });
 
       instance.messageFlags.set(displaySuccessMessage, docID);
       instance.messageFlags.set(displayErrorMessages, false);
-    } else {
+    }
+    else {
 
       instance.messageFlags.set(displaySuccessMessage, false);
       instance.messageFlags.set(displayErrorMessages, true);
