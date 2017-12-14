@@ -119,7 +119,6 @@ Template.LFG_Submit_Page.events({
       instance.messageFlags.set(displaySuccessMessageRemove, true);
     }
     else {
-      
       instance.messageFlags.set(displayErrorMessagesRemove, true);
       instance.messageFlags.set(displaySuccessMessageRemove, false);
     }
