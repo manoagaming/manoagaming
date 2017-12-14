@@ -15,8 +15,8 @@
       </div>
 
       <div class="field">
-        {{> Text_Form_Control label="Username" placeholder="UH user ID" value=profile.title errorMessage=(fieldError "title")}}
-        {{> Text_Form_Control label="Email" placeholder="UH user ID@hawaii.edu" value=profile.location errorMessage=(fieldError "location")}}
+        {{> Text_Form_Control label="Username" placeholder="UH user ID" value=profile.username errorMessage=(fieldError "username")}}
+        {{> Text_Form_Control label="Email" placeholder="UH user ID@hawaii.edu" value="{{ profile.username }}@hawaii.edu" errorMessage=(fieldError "email")}}
         {{> Text_Form_Control label="Games Currently Playing" placeholder="http://foo.com/shot.jpg" value=profile.picture errorMessage=(fieldError "picture")}}
       </div>
 

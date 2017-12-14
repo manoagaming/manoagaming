@@ -35,7 +35,7 @@ class ProfileCollection extends BaseCollection {
       xbox: { type: Boolean, optional: true },
       nintendo: { type: Boolean, optional: true },
       pc: { type: Boolean, optional: true },
-      mobile: { type: Boolean, optional: true },
+      mobile: { type: Boolean, optional: true }
     }, { tracker: Tracker }));
   }
 
