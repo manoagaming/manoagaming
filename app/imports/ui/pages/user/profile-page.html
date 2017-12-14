@@ -16,8 +16,8 @@
 
       <div class="field">
         {{> Text_Form_Control label="Username" placeholder="UH user ID" value=profile.username errorMessage=(fieldError "username")}}
-        {{> Text_Form_Control label="Email" placeholder="UH user ID@hawaii.edu" value="{{ profile.username }}@hawaii.edu" errorMessage=(fieldError "email")}}
-        {{> Text_Form_Control label="Games Currently Playing" placeholder="http://foo.com/shot.jpg" value=profile.picture errorMessage=(fieldError "picture")}}
+        {{> Text_Form_Control label="Email" placeholder="UH user ID@hawaii.edu" value=$profile.email errorMessage=(fieldError "email")}}
+        {{> Text_Form_Control name="Games" label="Games Currently Playing" placeholder="Starcraft" value=profile.picture errorMessage=(fieldError "picture")}}
       </div>
 
       <div class="field">
@@ -26,15 +26,15 @@
 
       <div class="fields">
 
-        {{> Social_Network_Form_Control label="Steam" icon="steam" placeholder="Steam Account Name" value=profile.steam errorMessage=(fieldError "steam")}}
-        {{> Social_Network_Form_Control label="Origin" icon="desktop" placeholder="Origin Account IGN" value=profile.origin errorMessage=(fieldError "origin")}}
+        {{> Social_Network_Form_Control name="steamIGN" label="Steam" icon="steam" placeholder="Steam Account Name" value=profile.steam errorMessage=(fieldError "steam")}}
+        {{> Social_Network_Form_Control name="originIGN" label="Origin" icon="desktop" placeholder="Origin Account IGN" value=profile.origin errorMessage=(fieldError "origin")}}
 
       </div>
 
       <div class="fields">
 
-        {{> Social_Network_Form_Control label="PSN" icon="game" placeholder="PlayStation IGN" value=profile.psn errorMessage=(fieldError "psn")}}
-        {{> Social_Network_Form_Control label="XBOX" icon="game" placeholder="xBox IGN" value=profile.xbox errorMessage=(fieldError "xbox")}}
+        {{> Social_Network_Form_Control name="psnIGN" label="PSN" icon="game" placeholder="PlayStation IGN" value=profile.psn errorMessage=(fieldError "psn")}}
+        {{> Social_Network_Form_Control name="xboxliveIGN" label="XBOX" icon="game" placeholder="xBox IGN" value=profile.xboxlive errorMessage=(fieldError "xbox")}}
 
 
       </div>

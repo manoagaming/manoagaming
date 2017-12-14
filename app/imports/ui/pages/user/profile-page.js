@@ -55,7 +55,7 @@ Template.Profile_Page.events({
     const steamIGN = event.target.Steam.value;
     const originIGN = event.target.Origin.value;
     const psnIGN = event.target.PSN.value;
-    const xboxliveIGN = event.target.xBoxLive.value;
+    const xboxliveIGN = event.target.XBOX.value;
     // Consoles
 /*
     const ps = event.target.PS.value;
@@ -73,7 +73,7 @@ Template.Profile_Page.events({
     const interests = _.map(selectedInterests, (option) => option.value);
 
     const updatedProfileData = { firstName, lastName, username, email, games, steamIGN, originIGN, psnIGN,
-      xboxliveIGN, ps, xbox, nintendo, pc, mobile,  bio, interests };
+      xboxliveIGN, /* ps, xbox, nintendo, pc, mobile, */  bio, interests };
 
     // Clear out any old validation errors.
     instance.context.reset();
